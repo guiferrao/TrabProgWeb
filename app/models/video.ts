@@ -22,6 +22,15 @@ export default class Video extends BaseModel {
   @column()
   declare videoUrl: string
 
+  @column()
+  declare visibility: 'public' | 'unlisted' | 'private'
+
+  @column()
+  declare views: number
+
+  @column()
+  declare likes: number
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

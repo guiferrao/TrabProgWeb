@@ -33,7 +33,7 @@ export class UserSchema extends BaseModel {
 }
 
 export class VideoSchema extends BaseModel {
-  static $columns = ['category', 'createdAt', 'description', 'id', 'title', 'updatedAt', 'userId', 'videoUrl'] as const
+  static $columns = ['category', 'createdAt', 'description', 'id', 'likes', 'title', 'updatedAt', 'userId', 'videoUrl', 'views', 'visibility'] as const
   $columns = VideoSchema.$columns
   @column()
   declare category: string
@@ -44,6 +44,8 @@ export class VideoSchema extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
   @column()
+  declare likes: number | null
+  @column()
   declare title: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
@@ -51,4 +53,8 @@ export class VideoSchema extends BaseModel {
   declare userId: number | null
   @column()
   declare videoUrl: string
+  @column()
+  declare views: number | null
+  @column()
+  declare visibility: string | null
 }
