@@ -11,7 +11,9 @@ import { middleware } from '#start/kernel'
 import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
 
-router.on('/').render('pages/home').as('home')
+router.get('/', async ({ response }) => {
+  return response.redirect('/videos')
+})
 
 router
   .group(() => {
@@ -41,3 +43,5 @@ router.group(() => {
   router.get('/videos/enviar', [VideosController, 'create'])
   router.post('/videos', [VideosController, 'store'])
 }).use(middleware.auth())
+
+router.get('/videos', [VideosController, 'index'])

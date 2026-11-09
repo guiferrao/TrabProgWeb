@@ -1,3 +1,4 @@
+import Video from '#models/video'
 import type { HttpContext } from '@adonisjs/core/http'
 import app from '@adonisjs/core/services/app'
 
@@ -31,5 +32,14 @@ export default class VideosController {
     })
 
     return response.redirect('/videos')
+  }
+
+  async index({ view }: HttpContext) {
+    const videos = await Video.query()
+      .where('visibility', 'public')
+      .preload('user')
+      .orderBy('createdAt', 'desc')
+
+    return view.render('pages/videos/index', { videos })
   }
 }
