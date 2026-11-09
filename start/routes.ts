@@ -34,3 +34,10 @@ const RegistersController = () => import('#controllers/registers_controller')
 
 router.get('/cadastro', [RegistersController, 'create'])
 router.post('/cadastro', [RegistersController, 'store'])
+
+const VideosController = () => import('#controllers/videos_controller')
+
+router.group(() => {
+  router.get('/videos/enviar', [VideosController, 'create'])
+  router.post('/videos', [VideosController, 'store'])
+}).use(middleware.auth())

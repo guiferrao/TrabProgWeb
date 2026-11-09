@@ -13,6 +13,8 @@ export type ScannedRoutes = {
     'session.destroy': { paramsTuple?: []; params?: {} }
     'registers.create': { paramsTuple?: []; params?: {} }
     'registers.store': { paramsTuple?: []; params?: {} }
+    'videos.create': { paramsTuple?: []; params?: {} }
+    'videos.store': { paramsTuple?: []; params?: {} }
   }
   GET: {
     'home': { paramsTuple?: []; params?: {} }
@@ -20,6 +22,7 @@ export type ScannedRoutes = {
     'session.create': { paramsTuple?: []; params?: {} }
     'dashboard': { paramsTuple?: []; params?: {} }
     'registers.create': { paramsTuple?: []; params?: {} }
+    'videos.create': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'home': { paramsTuple?: []; params?: {} }
@@ -27,12 +30,14 @@ export type ScannedRoutes = {
     'session.create': { paramsTuple?: []; params?: {} }
     'dashboard': { paramsTuple?: []; params?: {} }
     'registers.create': { paramsTuple?: []; params?: {} }
+    'videos.create': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'new_account.store': { paramsTuple?: []; params?: {} }
     'session.store': { paramsTuple?: []; params?: {} }
     'session.destroy': { paramsTuple?: []; params?: {} }
     'registers.store': { paramsTuple?: []; params?: {} }
+    'videos.store': { paramsTuple?: []; params?: {} }
   }
 }
 declare module '@adonisjs/core/types/http' {
