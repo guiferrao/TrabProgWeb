@@ -29,3 +29,8 @@ router
     router.post('logout', [controllers.Session, 'destroy'])
   })
   .use(middleware.auth())
+
+const RegistersController = () => import('#controllers/registers_controller')
+
+router.get('/cadastro', [RegistersController, 'create'])
+router.post('/cadastro', [RegistersController, 'store'])
