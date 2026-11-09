@@ -42,4 +42,16 @@ export default class VideosController {
 
     return view.render('pages/videos/index', { videos })
   }
+
+  async show({ params, view }: HttpContext) {
+    const video = await Video.query()
+      .where('id', params.id)
+      .preload('user')
+      .firstOrFail()
+
+    video.views += 1
+    await video.save()
+
+    return view.render('pages/videos/show', { video })
+  }
 }

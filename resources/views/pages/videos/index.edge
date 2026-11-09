@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feed - RuralStream</title>
+  <title>Feed - SEM NOME AINDA</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 min-h-screen text-gray-800">
@@ -23,10 +23,9 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       @each(video in videos)
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col">
-          <!-- Player de Vídeo em miniatura (Vertical 9:16) -->
-          <div class="relative bg-black h-96">
-            <video src="{{ video.videoUrl }}" class="w-full h-full object-cover" controls></video>
-          </div>
+          <a href="/videos/{{ video.id }}" class="block relative bg-black h-96">
+            <video src="{{ video.videoUrl }}" class="w-full h-full object-cover pointer-events-none"></video>
+        </a>
           
           <!-- Informações do Vídeo -->
           <div class="p-4 flex flex-col flex-grow">

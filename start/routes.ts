@@ -45,3 +45,4 @@ router.group(() => {
 }).use(middleware.auth())
 
 router.get('/videos', [VideosController, 'index'])
+router.get('/videos/:id', [VideosController, 'show'])
