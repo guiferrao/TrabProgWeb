@@ -23,3 +23,24 @@ export class UserSchema extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 }
+
+export class VideoSchema extends BaseModel {
+  static $columns = ['category', 'createdAt', 'description', 'id', 'title', 'updatedAt', 'userId', 'videoUrl'] as const
+  $columns = VideoSchema.$columns
+  @column()
+  declare category: string
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare description: string
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare title: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare userId: number | null
+  @column()
+  declare videoUrl: string
+}

@@ -2,6 +2,9 @@ import { UserSchema } from '#database/schema'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
+import { hasMany } from '@adonisjs/lucid/orm'
+import Video from '#models/video'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
 
 /**
  * User model represents a user in the application.
@@ -21,4 +24,7 @@ export default class User extends compose(UserSchema, withAuthFinder(hash)) {
     }
     return `${first.slice(0, 2)}`.toUpperCase()
   }
+
+  @hasMany(() => Video)
+  declare videos: HasMany<typeof Video>
 }
