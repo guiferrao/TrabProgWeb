@@ -13,6 +13,11 @@
       @!input.control({ autocomplete: 'name', placeholder: 'Ada Lovelace' })
       @!field.error()
     @end
+    @field.root({ name: 'username' })
+      @!field.label({ text: 'Username (@)' })
+      @!input.control({ autocomplete: 'username', placeholder: 'adalovelace' })
+      @!field.error()
+    @end
     @field.root({ name: 'email' })
       @!field.label({ text: 'Email' })
       @!input.control({

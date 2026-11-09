@@ -49,3 +49,7 @@ router.get('/videos/:id', [VideosController, 'show'])
 
 router.get('/admin/videos', [VideosController, 'adminIndex'])
 router.post('/admin/videos/:id/delete', [VideosController, 'destroy'])
+
+const UsersAdminController = () => import('#controllers/users_admins_controller')
+
+router.get('/admin/users', [UsersAdminController, 'index'])

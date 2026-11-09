@@ -34,13 +34,24 @@ export default class VideosController {
     return response.redirect('/videos')
   }
 
-  async index({ view }: HttpContext) {
-    const videos = await Video.query()
+  async index({ request, view }: HttpContext) {
+    const search = request.input('search')
+
+    const query = Video.query()
       .where('visibility', 'public')
       .preload('user')
       .orderBy('createdAt', 'desc')
 
-    return view.render('pages/videos/index', { videos })
+    if (search) {
+      query.andWhere((q) => {
+        q.where('title', 'like', `%${search}%`)
+         .orWhere('category', 'like', `%${search}%`)
+         .orWhere('description', 'like', `%${search}%`)
+      })
+    }
+
+    const videos = await query
+    return view.render('pages/videos/index', { videos, search })
   }
 
   async show({ params, view }: HttpContext) {

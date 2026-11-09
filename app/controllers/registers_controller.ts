@@ -12,6 +12,7 @@ export default class RegistersController {
 
         const user = await User.create({
             fullName: payload.fullName,
+            username: payload.username,
             email: payload.email,
             password: payload.password,
         })
