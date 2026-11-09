@@ -16,6 +16,8 @@ export type ScannedRoutes = {
     'videos.store': { paramsTuple?: []; params?: {} }
     'videos.index': { paramsTuple?: []; params?: {} }
     'videos.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'videos.admin_index': { paramsTuple?: []; params?: {} }
+    'videos.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   GET: {
     'new_account.create': { paramsTuple?: []; params?: {} }
@@ -25,6 +27,7 @@ export type ScannedRoutes = {
     'videos.create': { paramsTuple?: []; params?: {} }
     'videos.index': { paramsTuple?: []; params?: {} }
     'videos.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'videos.admin_index': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'new_account.create': { paramsTuple?: []; params?: {} }
@@ -34,6 +37,7 @@ export type ScannedRoutes = {
     'videos.create': { paramsTuple?: []; params?: {} }
     'videos.index': { paramsTuple?: []; params?: {} }
     'videos.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'videos.admin_index': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'new_account.store': { paramsTuple?: []; params?: {} }
@@ -41,6 +45,7 @@ export type ScannedRoutes = {
     'session.destroy': { paramsTuple?: []; params?: {} }
     'registers.store': { paramsTuple?: []; params?: {} }
     'videos.store': { paramsTuple?: []; params?: {} }
+    'videos.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
 }
 declare module '@adonisjs/core/types/http' {

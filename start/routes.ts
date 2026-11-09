@@ -46,3 +46,6 @@ router.group(() => {
 
 router.get('/videos', [VideosController, 'index'])
 router.get('/videos/:id', [VideosController, 'show'])
+
+router.get('/admin/videos', [VideosController, 'adminIndex'])
+router.post('/admin/videos/:id/delete', [VideosController, 'destroy'])

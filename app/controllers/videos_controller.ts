@@ -54,4 +54,16 @@ export default class VideosController {
 
     return view.render('pages/videos/show', { video })
   }
+
+  async adminIndex({ view }: HttpContext) {
+    const videos = await Video.query().preload('user').orderBy('createdAt', 'desc')
+    return view.render('pages/admin/videos', { videos })
+  }
+
+  async destroy({ params, response }: HttpContext) {
+    const video = await Video.findOrFail(params.id)
+
+    await video.delete()
+    return response.redirect('/admin/videos')
+  }
 }
