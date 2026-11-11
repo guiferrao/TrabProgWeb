@@ -37,6 +37,7 @@ npm run dev
 ## Rotas Principais
 
 - **`/`** ou **`/videos`** - Feed principal e busca de vídeos.
+- **`/cadastro`** - Cadastro de novos usuários na plataforma
 - **`/videos/enviar`** - Envio de novos vídeos na plataforma.
 - **`/videos/:id`** - Visualização detalhada do vídeo e contato do prestador.
 - **`/admin/videos`** - Painel administrativo para gestão e exclusão de vídeos.
